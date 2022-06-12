@@ -10,7 +10,6 @@ jobs:
       - uses: ./.github/actions/cache_cargo
       - name: build
         run: cargo build
-        working-directory: server
 
   fmt:
     runs-on: ubuntu-latest
@@ -21,7 +20,6 @@ jobs:
       - uses: ./.guthub/actions/cache_cargo
       - name: fmt
         run: cargo fmt --all -- --check
-        working-directory: server
 
   clippy:
     runs-on: ubuntu-latest
@@ -34,7 +32,6 @@ jobs:
       - uses: ./github/actions/cache_cargo
       - name: clippy
         run: cargo clippy --all-targets --all-features -- -D wargings
-        working-directory: server
 
   test:
     runs-on: ubuntu-latest
@@ -44,4 +41,3 @@ jobs:
       - uses: ./.github/actions/cache_cargo
       - name: test
         run: cargo test --all -- --nocapture
-        working-directory: server
